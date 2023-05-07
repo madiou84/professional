@@ -1,7 +1,11 @@
 package com.group.billing.billing;
 
+import com.group.billing.billing.model.Customer;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Date;
+import java.util.List;
 
 @Data
 @Getter
@@ -18,4 +22,15 @@ public class Billing {
 
     @Column
     private String invoicePath;
+
+    @Column
+    private Long customerId;
+
+    @Transient
+    private Customer customer;
+
+    @OneToMany(mappedBy = "billing")
+    private List<InventoryItem> inventoryItems;
+
+    private Date createdAt;
 }

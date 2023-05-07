@@ -18,3 +18,7 @@ spring:
 #          uri: http://localhost:9092
 #          predicates:
 #            - Path= /inventories/**
+eureka:
+  instance:
+    preferIpAddress: true
+    lease-renewal-interval-in-seconds: 30
